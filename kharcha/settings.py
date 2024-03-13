@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'investment',
     'finance',
     'account',
-    'compressor',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -136,8 +135,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 # compressor_settings
-COMPRESS_ROOT = BASE_DIR / 'static'
 
-COMPRESS_ENABLED = True
 
-STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'dashboard'

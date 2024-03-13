@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block content %}
+<body class="bg-gray-50 dark:bg-gray-800">
+  {% block navbar_bloc %}
+  {% include "widgets/navbar.html" %}
+  {% endblock navbar_bloc %}
+  <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+    {% block sidebar_bloc %}
+    {% include "widgets/sidebar.html" %}
+    {% endblock sidebar_bloc %}
+
+    <div class="fixed inset-0 z-10 hidden bg-gray-900/50 dark:bg-gray-900/90" id="sidebarBackdrop"></div>
+    <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
+      <main>
+        <div class="px-4 pt-6">
+          <div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
+            <!-- Main widget -->
+              {% block graph_bloc %}
+              {% include "widgets/graph.html" %}
+              {% endblock graph_bloc %}
+            <!--Tabs widget -->
+              {% block stat_bloc %}
+              {% include "widgets/stat.html" %}
+              {% endblock stat_bloc %}
+<div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
+
+  {% block line_graph_bloc %}
+    {% include "widgets/line_graph.html" %}
+  {% endblock line_graph_bloc %}
+
+  {% block line_graph_horizontal_bloc %}
+    {% include "widgets/line_graph_horizontal.html" %}
+  {% endblock line_graph_horizontal_bloc %}
+
+  </div>
+    <div class="grid grid-cols-1 my-4 xl:grid-cols-2 xl:gap-4">
+
+
+      {% block smart_chat_bloc %}
+      {% include "widgets/smart_chat.html" %}
+      {% endblock smart_chat_bloc %}
+
+            <!-- Right Content -->
+            <div class="grid gap-4">
+              {% block category_graph_bloc %}
+
+              {% include "widgets/category_graph.html" %}
+              
+              {% endblock category_graph_bloc %}
+
+              {% block pie_graph_bloc %}
+              {% include "widgets/circular_pie_chart.html" %}
+              {% endblock pie_graph_bloc %}
+
+            </div>
+          </div>
+          <!-- 2 columns -->
+          <div class="grid grid-cols-1 my-4 xl:grid-cols-2 xl:gap-4">
+            <!-- Activity Card -->
+            {% block activity_bloc %}
+            {% include "widgets/activity.html" %}
+            {% endblock activity_bloc %}
+            <!--Carousel widget -->
+           
+            {% block insights_bloc %}
+            {% include "widgets/insights.html" %}
+            {% endblock insights_bloc %}
+
+            </div>
+          </div>
+
+
+
+          </div>
+
+          {% block transactions_table_bloc %}
+          {% endblock transactions_table_bloc %}
+
+      </main>
+      {% block footer_bloc %}{% endblock footer_bloc %}
+
+    </div>
+
+  </div>
+{% endblock %}
