@@ -1,6 +1,5 @@
 from django.db import models
 from account.models import CustomUser
-from budget.models import Category
 
 # Create your models here.
 
@@ -16,7 +15,7 @@ class Account(models.Model):
 
 class Transaction(models.Model):
     account_id=models.ForeignKey(Account, on_delete=models.CASCADE)
-    category=models.ForeignKey(Category, on_delete=models.CASCADE)
+    # category=models.ForeignKey(Category, on_delete=models.CASCADE)
     amount=models.DecimalField( max_digits=15, decimal_places=2)
     transaction_type=models.CharField( max_length=50)
     description=models.TextField()
