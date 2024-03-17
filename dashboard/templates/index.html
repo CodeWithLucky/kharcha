@@ -14,6 +14,9 @@
       <main>
         <div class="px-4 pt-6">
           <div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
+
+            {% include "widgets/line_graph.html" %}
+            {% include "widgets/line_graph_horizontal.html" %}
             <!-- Main widget -->
               {% block graph_bloc %}
               {% include "widgets/graph.html" %}
@@ -24,13 +27,7 @@
               {% endblock stat_bloc %}
 <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
 
-  {% block line_graph_bloc %}
-    {% include "widgets/line_graph.html" %}
-  {% endblock line_graph_bloc %}
-
-  {% block line_graph_horizontal_bloc %}
-    {% include "widgets/line_graph_horizontal.html" %}
-  {% endblock line_graph_horizontal_bloc %}
+ 
 
   </div>
     <div class="grid grid-cols-1 my-4 xl:grid-cols-2 xl:gap-4">

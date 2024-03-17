@@ -1,16 +1,17 @@
 from django.db import models
 from account.models import CustomUser
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 class Account(models.Model):
     name=models.CharField(max_length=50)
     account_type=models.CharField(max_length=100)
-    user_id=models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    user_id=models.ForeignKey(User, on_delete=models.CASCADE)
     balance=models.DecimalField(max_digits=15, decimal_places=2)
     date_created=models.DateTimeField(auto_now_add=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.name
 
 class Transaction(models.Model):
@@ -21,14 +22,14 @@ class Transaction(models.Model):
     description=models.TextField()
     transaction_date=models.DateTimeField(auto_now_add=True)
     
-    def _str_(self):
+    def __str__(self):
         return self.description
     
 class Transfer(models.Model):
-    from_account_id=models.ForeignKey(Account, on_delete=models.CASCADE,related_name='transfers_sent')
-    to_account_id=models.ForeignKey(Account, on_delete=models.CASCADE,related_name='transfer_received')
+    from_account=models.ForeignKey(Account, on_delete=models.CASCADE,related_name='transfers_sent')
+    to_account=models.ForeignKey(Account, on_delete=models.CASCADE,related_name='transfer_received')
     amount=models.DecimalField(max_digits=15, decimal_places=2)
     description=models.TextField()
     transfer_date=models.DateTimeField(auto_now_add=True)
-    def _str_(self):
+    def __str__(self):
         return self.description

@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'investment',
     'finance',
     'account',
+    'widget_tweaks',
+    'admin_argon.apps.AdminArgonConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

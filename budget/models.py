@@ -16,7 +16,6 @@ class Budget(models.Model):
     description = models.TextField(null=True)
     expenses = models.CharField(max_length=50,null=True)
 
-
     def _str_(self):
         return self.budget_title 
     

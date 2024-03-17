@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load widget_tweaks %}
+
+{% include "widgets/navbar.html" %}
+
+{%include "widgets/sidebar.html" %}
+
+
+
+
+
+<div class="flex  justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-800">
+    <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-8 max-w-2xl w-full">
+        <h5 class="inline-flex items-center mb-6 text-sm font-semibold text-gray-500 uppercase dark:text-gray-400">Send Money</h5>
+        <button type="button" data-drawer-dismiss="drawer-create-budget-default" aria-controls="drawer-create-budget-default" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            <span class="sr-only">Close menu</span>
+        </button>
+
+        {% if form.non_field_errors %}
+    <div id="error-message" class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        <strong class="font-bold">Holy smokes!</strong>
+        <span class="block sm:inline">{{ form.non_field_errors }}</span>
+        <span class="absolute top-0 bottom-0 right-0 px-4 py-3">
+            <svg id="close-error" class="fill-current h-6 w-6 text-red-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <title>Close</title>
+                <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+            </svg>
+        </span>
+    </div>
+    <script>
+        setTimeout(function() {
+            var errorMessage = document.getElementById('error-message');
+            if (errorMessage) {
+                errorMessage.style.display = 'none';
+            }
+        }, 2000); // Adjust the timeout duration (in milliseconds) as needed
+    </script>
+{% endif %}
+
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="space-y-4">
+                
+                {% for fields in form %}
+                <div>
+                    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{fields.label_tag}}</label>
+                    {%render_field fields class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"%}
+                </div>
+    
+                {% endfor %}
+                
+                <div class="flex justify-center w-full pb-4 px-4">
+                    <div class="flex space-x-4 w-full max-w-2xl"> <!-- max-w-2xl limits the maximum width -->
+                        <button type="submit" class="flex-grow text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            Send
+                        </button>
+                        <button type="button" data-drawer-dismiss="drawer-create-budget-default" aria-controls="drawer-create-budget-default" class="flex-grow text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-primary-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">
+                            Cancel
+                        </button>
+                    </div>
+                </div>
+                
+                
+        </form>
+    </div>
+</div>
+
+
+ 
+
+
+ 
+
+
+{% endblock content %}

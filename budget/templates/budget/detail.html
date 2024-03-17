@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Details</title>
+    <!-- Include Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-900 text-white">
+    <div class="container mx-auto py-8">
+        <h1 class="text-2xl font-bold mb-4">Budget Details</h1>
+        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+            <p><strong class="text-gray-300">Budget Title:</strong> {{ one.budget_title }}</p>
+            <p><strong class="text-gray-300">Category:</strong> {{ one.category }}</p>
+            <p><strong class="text-gray-300">Description:</strong> {{ one.description }}</p>
+            <p><strong class="text-gray-300">ID:</strong> {{ one.id }}</p>
+            <p><strong class="text-gray-300">Expenses:</strong> {{ one.expenses }}</p>
+        </div>
+    </div>
+</body>
+
+</html>
