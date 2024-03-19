@@ -8,15 +8,68 @@
     {% block sidebar_bloc %}
     {% include "widgets/sidebar.html" %}
     {% endblock sidebar_bloc %}
+    
 
     <div class="fixed inset-0 z-10 hidden bg-gray-900/50 dark:bg-gray-900/90" id="sidebarBackdrop"></div>
     <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
       <main>
-        <div class="px-4 pt-6">
-          <div class="grid gap-4 xl:grid-cols-2 2xl:grid-cols-3">
 
-            {% include "widgets/line_graph.html" %}
-            {% include "widgets/line_graph_horizontal.html" %}
+
+        <div class="px-4 pt-6">
+
+
+          <div class="flex mb-5 gap-4 text-white">
+            <div
+              class="flex-col justify-between p-4 bg-white border w-[30%] h-[35vh] border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+              <div class="flex justify-between">
+                <div>
+                  <img src="https://flowbite-admin-dashboard.vercel.app/images/logo.svg" alt="" srcset="" />
+                </div>
+
+                <div class="flex gap-3">
+                  <img src="https://flowbite-admin-dashboard.vercel.app/images/logo.svg" alt="" srcset="" />
+                  <img src="https://flowbite-admin-dashboard.vercel.app/images/logo.svg" alt="" srcset="" />
+                </div>
+              </div>
+
+              <div class="">
+                Account Number
+                <h1>{{selected_account.id}}</h1>
+              </div>
+              <div class="">
+                Total Amount in Account
+                <h1 class="font-bold text-xl">Rs: {{selected_account.balance}}</h1>
+              </div>
+              <div class="">Lorem ipsum dolor</div>
+            </div>
+            <div
+              class="items-center justify-between p-4 bg-white border w-[70%] border-gray-200 rounded-lg shadow-sm sm:flex dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+              <h1 class='font-bold text-3xl'>{{selected_account.name}}</h1>
+            </div>
+          </div>
+
+
+          
+
+          {% include "widgets/transaction_table.html" %}
+
+
+
+
+
+          <div class="grid gap-4 p-4 xl:grid-cols-2 2xl:grid-cols-3">
+
+
+             
+
+
+
+
+        
+            
+
+
+            
             <!-- Main widget -->
               {% block graph_bloc %}
               {% include "widgets/graph.html" %}
@@ -25,12 +78,9 @@
               {% block stat_bloc %}
               {% include "widgets/stat.html" %}
               {% endblock stat_bloc %}
-<div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3">
-
- 
-
+<div class="grid w-full grid-cols-1 gap-4 px-4  mt-4 xl:grid-cols-2 2xl:grid-cols-3">
   </div>
-    <div class="grid grid-cols-1 my-4 xl:grid-cols-2 xl:gap-4">
+    <div class="grid grid-cols-1 my-4 px-4  xl:grid-cols-2 xl:gap-4">
 
 
       {% block smart_chat_bloc %}
@@ -52,7 +102,7 @@
             </div>
           </div>
           <!-- 2 columns -->
-          <div class="grid grid-cols-1 my-4 xl:grid-cols-2 xl:gap-4">
+          <div class="grid grid-cols-1 px-4  my-4 xl:grid-cols-2 xl:gap-4">
             <!-- Activity Card -->
             {% block activity_bloc %}
             {% include "widgets/activity.html" %}
@@ -65,18 +115,11 @@
 
             </div>
           </div>
-
-
-
           </div>
-
-          {% block transactions_table_bloc %}
-          {% endblock transactions_table_bloc %}
-
       </main>
       {% block footer_bloc %}{% endblock footer_bloc %}
 
     </div>
 
   </div>
-{% endblock %}
+{% endblock %}

@@ -12,5 +12,12 @@ class AdminTransfer(admin.ModelAdmin):
     list_display=[
         'from_account', 'to_account', 'amount', 'description'
     ]
-admin.site.register(Transaction)
+
+class AdminTransaction(admin.ModelAdmin):
+    list_display=[
+        'account_id', 'amount', 'transaction_type', 'description', 'transaction_date'
+    ]
+
+    
+admin.site.register(Transaction, AdminTransaction)
 admin.site.register(Transfer, AdminTransfer)

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from finance.models import Account
 
 class Category(models.Model):
     name=models.CharField( max_length=100)
@@ -9,7 +10,8 @@ class Category(models.Model):
         return self.name
 
 class Budget(models.Model):
-    user_id=models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    # user_id=models.ForeignKey(User, null=True, on_delete=models.CASCADE)
+    account = models.ForeignKey(Account, null = True, on_delete=models.CASCADE)
     budget_title = models.CharField(max_length=100,null=True)
     category = models.CharField(null=True, max_length=50)
     amount=models.DecimalField(max_digits=15, decimal_places=2,null=True)

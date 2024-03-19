@@ -165,6 +165,14 @@
               Toggle dark mode
               <div class="tooltip-arrow" data-popper-arrow></div>
           </div>
+
+          <form action={% url "dashboard" %}>
+            <select name='account' id='account' onchange='this.form.submit()' class='bg-gray-800 text-white px-4 py-2 mx-3 rounded-xl'>
+             {% for account in accounts %}
+              <option value={{account.id}} {% if account.id == selected_account.id %} selected {%endif%}>{{account.name}}</option>
+              {% endfor %}
+            </select>
+          </form>
           
           <div class="flex items-center ml-3">
             <div>
